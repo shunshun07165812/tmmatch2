@@ -35,7 +35,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
     Route::get('/newuser',[UserController::class, 'index']);
-    Route::put('/users/{user}', [UserController::class,'store']);
+    Route::put('/users/{user}', [UserController::class,'store']); //新規のプロフィール作成
+    
     Route::get('/usersshow', [UserController::class ,'show']);
     Route::get('/mypage',[UserController::class,'home']);   //ログイン
     Route::get('/mypage/{user}',[UserController::class,'home_show']);

@@ -15,7 +15,9 @@
             <p>年齢:{{$user->age}}</p>
             <p>都道府県:{{$user->address}}</p>
             <p>一言:{{$user->self_introduction}}</p>
-            <p>写真:{{$user->gender}}</p>
+            </div>
+            <div class="profile">
+               <img src="{{$user->profile_image}}" alt="画像が読み込めません。" width="25%"/>
             </div>
             
         </form>

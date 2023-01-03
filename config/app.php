@@ -184,6 +184,8 @@ return [
         
         /*追加した**/
         Laravel\Socialite\SocialiteServiceProvider::class,
+        /*追加した**/
+        CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class,
         
         /*
          * Package Service Providers...

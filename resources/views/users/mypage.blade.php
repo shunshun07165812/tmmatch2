@@ -17,11 +17,7 @@
             <p>一言:{{$user->self_introduction}}</p>
             </div>
             <div class="profile">
-                @if($user->profile_image !=='')
-                <img src="{{ \Storage::url($user->profile_image)}}" width="25%">
-                @else
-                <p>画像なし</p>
-                @endif
+               <img src="{{$user->profile_image}}" alt="画像が読み込めません。" width="25%"/>
             </div>
             
         </form>

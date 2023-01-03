@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Blog;
 use App\Models\Artist;
 use Auth;
+//追加した
+use Cloudinary;
 class UserController extends Controller
 {
      public function index(User $user)
@@ -31,12 +33,12 @@ class UserController extends Controller
     
     $user->fill($input_user)->save();**/
     
-    
-    $image=base64_encode($request->file('profile_image'));
+    //$image=$request->file('profile_image');
     //$path=isset($image) ? $image->store('users', 'public'): '';
-    $path=$image->store('users', 'public');
-    $user['profile_image'] = $path;
+    $image_url = Cloudinary::upload($request->file('profile_image')->getRealPath())->getSecurePath();
+    //$user['profile_image'] = $path;
     $input_user = $request['user'];
+    $input_user+= ['profile_image' => $image_url];
     $user->fill($input_user)->save();
     return redirect('/usersshow');
     }
@@ -51,10 +53,14 @@ class UserController extends Controller
     //編集内容をアップデート
     public function update(Request $request, User $user)
     {
-    $image=$request->file('profile_image');
-    $path=isset($image) ? $image->store('users', 'public'): '';
-    $user['profile_image'] = $path;
+    //$image=$request->file('profile_image');
+    //$path=isset($image) ? $image->store('users', 'public'): '';
+    //$user['profile_image'] = $path;
+    //$input_user = $request['user'];
+    //$user->fill($input_user)->save();
+    $image_url = Cloudinary::upload($request->file('profile_image')->getRealPath())->getSecurePath();
     $input_user = $request['user'];
+    $input_user+= ['profile_image' => $image_url];
     $user->fill($input_user)->save();
     return redirect('/tmmatch');
     }
