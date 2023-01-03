@@ -52,6 +52,6 @@
             </div>
         </form>
         <a href="/register">新規会員</a>
-        
+        <a href="/login/google"> google</a>
     </x-auth-card>
 </x-guest-layout>

@@ -27,6 +27,7 @@ class User extends Authenticatable
         'address',
         'self_introduction',
         'profile_image',
+        "google_id",
         
     ];
 

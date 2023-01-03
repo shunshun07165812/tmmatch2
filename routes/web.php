@@ -8,6 +8,7 @@ use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\GoogleAuthController;
 
 
 /*
@@ -20,6 +21,16 @@ use App\Http\Controllers\LikeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get("/login/google", [
+  GoogleAuthController::class,
+  "redirectToGoogle",
+]);
+
+// 追加
+Route::get("/login/google/callback", [
+  GoogleAuthController::class,
+  "handleGoogleCallback",
+]);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -56,9 +67,11 @@ Route::get('/dashboard', function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
+    //Route::get('/',[UserController::class,'my']);
+    
     Route::controller(PostController::class)->middleware('auth')->group(function () {
-   
-    Route::get('/', 'index')->name('index');
+    Route::get('/',[UserController::class,'my']);
+    //Route::get('/', 'index')->name('index');
     Route::post('/blogs','store')->name('store');
     Route::get('/blogs/create', 'create')->name('create');
     Route::get('/blogs/{blog}', 'show')->name('show');

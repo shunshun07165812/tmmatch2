@@ -25,13 +25,13 @@
             </div>
             
         </form>
-        <div class="edit"><a href="/mypage/{{ $user->id }}/edit">edit</a></div>
+        <div class="edit"><p><a href="/mypage/{{ $user->id }}/edit">edit</a>(google認証の方はここに初期設定したください)</p></div>
        
         @foreach ($user->artists as $artist)
                 <p class='artist'>{{ $artist->name }}</p>
             @endforeach
         <div class="footer">
-            <a href="/artist">アーティスト追加</a>
+            <p><a href="/artist">アーティスト追加</a>(google認証の方はここに初期設定したください)</p>
         </div>
         
         <ul>

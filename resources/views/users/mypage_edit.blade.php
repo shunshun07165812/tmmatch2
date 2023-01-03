@@ -12,6 +12,7 @@
             @csrf
             @method('PUT')
             <div class="body">
+                <p>名前：<input type='text' name='user[name]'  value="{{ $user->name }}"></p>
                 <p>性別：<input type='text' name='user[gender]'  value="{{ $user->gender }}"></p>
                 <p>年齢：<input type='text' name='user[age]' value="{{ $user->age }}"></p>
                 <p>都道府県<input type='text' name='user[address]' value="{{ $user->address }}"></p>
