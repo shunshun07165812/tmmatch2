@@ -16,7 +16,7 @@
         <p>一言:{{$user->self_introduction}}</p>
         <div class="profile">
             @if($user->profile_image !=='')
-            <img src="{{ \Storage::url($user->profile_image)}}" width="25%">
+            <img src="data:image/png;base64,{{ \Storage::url($user->profile_image)}}" width="25%">
             @else
             <p>画像なし</p>
             @endif
