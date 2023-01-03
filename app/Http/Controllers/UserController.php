@@ -33,7 +33,8 @@ class UserController extends Controller
     
     
     $image=base64_encode($request->file('profile_image'));
-    $path=isset($image) ? $image->store('users', 'public'): '';
+    //$path=isset($image) ? $image->store('users', 'public'): '';
+    $path=$image->store('users', 'public');
     $user['profile_image'] = $path;
     $input_user = $request['user'];
     $user->fill($input_user)->save();
