@@ -30,8 +30,12 @@ class UserController extends Controller
    /** $input_user = $request['user'];
     
     $user->fill($input_user)->save();**/
+    $image = base64_encode(file_get_contents($request->file(profile_image)->getRealPath()));
+    Bbs::insert([
+        "profile_image" => $image
+    ]);
     
-    $image=$request->file('profile_image');
+    //$image=$request->file('profile_image');
     $path=isset($image) ? $image->store('users', 'public'): '';
     $user['profile_image'] = $path;
     $input_user = $request['user'];
