@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('artists', function (Blueprint $table) {
-            $table->foreignId('user_id')->references('id')->on('users');
+            $table->id();
+            $table->foreignId('user_id')->constrained();
             $table->string('name');
             $table->timestamps();
         });
