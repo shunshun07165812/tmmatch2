@@ -14,7 +14,7 @@ class ChatController extends Controller
    // chat_room生成
    public function store(User $user,Chat_room $chat_room){
       $user1=Auth::user();
-      if(Chat_room::where('user_id_1','!=','user_id_2')->where([['user_id_1','=',$user->id],['user_id_2','=',$user1->id]])->orWhere('user_id_1','!=','user_id_2')->where([['user_id_1','=',$user1->id],['user_id_2','=',$user->id]])->exists()){
+      if(Chat_room::where([['user_id_1','=',$user->id],['user_id_2','=',$user1->id]])->orWhere('user_id_1','!=','user_id_2')->where([['user_id_1','=',$user1->id],['user_id_2','=',$user->id]])->exists()){
          
          $chat_room=Chat_room::WhereIn('user_id_1',[$user->id,$user1->id])->WhereIn('user_id_2',[$user->id,$user1->id])->first();
       } else {
