@@ -58,11 +58,11 @@ class UserController extends Controller
     //$user['profile_image'] = $path;
     //$input_user = $request['user'];
     //$user->fill($input_user)->save();
+    $input_user = $request['user'];
     if($request->file('profile_image')){
     $image_url = Cloudinary::upload($request->file('profile_image')->getRealPath())->getSecurePath();
-    $input_user+= ['profile_image' => $image_url];
+    $input_user+= ['profile_image' => $image_url];}
     
-    $input_user = $request['user'];
     $user->fill($input_user)->save();
     return redirect('/tmmatch');
     }
