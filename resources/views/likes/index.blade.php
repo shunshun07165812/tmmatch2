@@ -5,6 +5,15 @@
         <title>likes</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <style>
+        a{
+            text-decoration:none;
+            color:#432;
+        }
+         a:hover{
+            color:#0bd;
+        }
+        </style>
     </head>
     <body>
         <h1>like一覧</h1>

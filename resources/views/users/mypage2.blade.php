@@ -3,12 +3,22 @@
     <head>
         <meta charset="utf-8">
         <title>mypage</title>
+        <style>
+        a{
+            text-decoration:none;
+            color:#432;
+        }
+         a:hover{
+            color:#0bd;
+        }
+        </style>
     </head>
     <body>
         
         <h1>mypage</h1>
         <form action="/users/{{$user->id}}" method="POST">
             @csrf
+            
             <div class="body">
             <p>名前：{{$user->name}}</p>
             <p>性別：{{$user->gender}}</p>
@@ -34,7 +44,7 @@
         
         
         <li><a href="/tmmatch">tmmatch</a></li>
-        <li><a href="/chat_room/{{$user->id}}">chat</a></li>
+        <li><a href="/chat_room/{{$user->id}}">チャット</a></li>
        
         
         

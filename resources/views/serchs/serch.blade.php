@@ -3,6 +3,15 @@
     <head>
         <meta charset="utf-8">
         <title>検索</title>
+        <style>
+            a{
+            text-decoration:none;
+            color:#432;
+        }
+         a:hover{
+            color:#0bd;
+        }
+        </style>
     </head>
     <body>
         <h1>検索</h1>

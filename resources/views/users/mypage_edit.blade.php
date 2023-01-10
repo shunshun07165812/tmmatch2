@@ -3,6 +3,15 @@
     <head>
         <meta charset="utf-8">
         <title>mypage</title>
+        <style>
+         a{
+            text-decoration:none;
+            color:#432;
+        }
+         a:hover{
+            color:#0bd;
+        }
+        </style>
     </head>
     <body>
         
