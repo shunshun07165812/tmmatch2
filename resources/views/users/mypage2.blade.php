@@ -11,11 +11,31 @@
          a:hover{
             color:#0bd;
         }
+        .body{
+            text-align:center;
+        }
+         .profile{
+            text-align:center;
+            margin-top:8%;
+        }
+        .artist{
+            text-align:center;
+        }
+        .good{
+            text-align:center;
+        }
+        li{
+            text-align:center
+        }
+        .blog{
+            text-align:center;
+        }
         </style>
     </head>
     <body>
         
-        <h1>mypage</h1>
+        <h1>tmmatch</h1>
+        <div class="box">
         <form action="/users/{{$user->id}}" method="POST">
             @csrf
             
@@ -31,10 +51,13 @@
             </div>
             
         </form>
+        </div>
+        <div class="good">
         <form action="/like/{{$user->id}}" method="POST">
             @csrf
          <button type="submit">いいね</button>   
         </form>
+        </div>
         
        
         @foreach ($user->artists as $artist)
@@ -50,6 +73,7 @@
         
         
         <!--blog-->
+        <div class="blog">
         <h1>Blog Name</h1>
         <a href='/blogs/create'>create</a>
         <div class='posts'>
@@ -60,22 +84,6 @@
                 </div>
             @endforeach
         </div>
-       {{-- <script>
-            function like(from_user_id) {
-              $.ajax({
-                headers: {
-                  "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-                },
-                url: `/like/${from_user_id}`,
-                type: "POST",
-              })
-                .done(function (data, status, xhr) {
-                  console.log(data);
-                })
-                .fail(function (xhr, status, error) {
-                  console.log();
-                });
-            }
-        </script>--}}
+        </div>
     </body>
 </html>

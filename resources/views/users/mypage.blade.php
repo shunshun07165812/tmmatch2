@@ -37,6 +37,17 @@
             margin:0 auto;
             padding:0 4%;
         }
+        .box{
+            padding:1.5rem;
+            background:linear-gradient(-45deg,rgba(144,245,154,1)rgba(4,202,255,1));
+            color:#353535;
+        }
+        .box-body{
+            padding:1rem;
+            border-radius:1rem;
+            background-color:white;
+            color:#353535;
+        }
         .profile-image{
             text-align:center;
             margin-top:8%;
@@ -71,8 +82,10 @@
             </ul>
         </nav>
         </header>
+        <div class="box">
         <form action="/users/{{$user->id}}" method="POST">
             @csrf
+            <div class=box-body>
             <div class="profile-image">
                <img src="{{$user->profile_image}}" alt="画像が読み込めません。" width="25%"/>
             </div>
@@ -100,6 +113,8 @@
             
                 <button>logout</button>
         </form>
+        </div>
+        </div>
         </div>
         
         
